@@ -55,9 +55,7 @@ Route::prefix('admin')->middleware("role:admin")->name('admin.')->group(function
 });
 
 Route::prefix('user')->middleware("role:user")->name('user.')->group(function () {
-    Route::get('/', function() {
-        return view('layouts/adminlte/page-blank');
-    })->name('dashboard');
+    Route::get('/', "DashboardController@index")->name('dashboard');
     Route::prefix('book')->name('book.')->group(function () {
         Route::get('/', "BookController@index")->name('index');
         Route::get('/{id}', "BookController@show")->name('show');
