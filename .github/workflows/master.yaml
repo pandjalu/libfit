@@ -1,31 +1,40 @@
 on:
-  push: 
-    branches: [ main, master ]
-    
+  push:
+    branches: [main, master]
+
 name: Deploy Website On Push!
 jobs:
-
   build:
     name: Deploying
     runs-on: ubuntu-latest
+    strategy:
+    matrix:
+      php:
+        - "7.3"
+        - "7.4"
+        - "8.0"
+      dependencies:
+        - "lowest"
+        - "highest"
+      include:
+        - php-version: "8.1"
+          composer-options: "--ignore-platform-reqs"
     steps:
       - name: Get latest Code
         uses: actions/checkout@v2
 
       - name: Install Dependency
-        uses: php-actions/composer@v6
-        with: 
-          php-version: 7.2
-        
+        uses: "ramsey/composer-install@v1"
+
       - name: Sync File to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
-        with: 
+        with:
           server: files.000webhost.com
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
           server-dir: public_html/
 
-  done: 
+  done:
     runs-on: ubuntu-latest
     needs: build
     steps:
