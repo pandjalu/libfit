@@ -26,8 +26,9 @@ class DashboardController extends Controller
         return view('Admin.Dashboard', [
             "book" => Book::count(),
             "member" => User::count(),
-            "borrowed" =>  Borrowing::count(),
-            "undone" => Borrowing::where('done', false)->count()
+            "borrowed" =>  Borrowing::where(['is_download' => 0])->count(),
+            "downloaded" =>Borrowing::where(['is_download' => 1])->count(),
+            "undone" => Borrowing::where(['done' => false])->count()
         ]);
     }
 }

@@ -44,6 +44,7 @@ class BookController extends Controller
             'title'         => 'Tampilkan Detail Buku ID: ' . $query->id,
             'action'        => '#',
             'isBorrow'        => $editUrl,
+            'downloadLink'  => url("user/book/download/$query->id"),
             'query'         => $query,
             'categories'    => $categories
         ]);
@@ -62,6 +63,22 @@ class BookController extends Controller
         return redirect()
             ->route('user.book.index')
             ->with('success', "Berhasil Meminjam Buku");
+    }
+
+    public function download($id) {
+        $user = Auth::user();
+        $query = Book::where('id', $id);
+        $query = $query->firstOrFail();
+        $insertData = [
+            "user_id" => $user->id,
+            "book_id" => $id,
+            "is_download" => true,
+            "done"      => true
+        ];
+        Borrowing::create($insertData);
+        
+        // return header("Location: $query->download_link");
+        return redirect($query->download_link);
     }
 }
  

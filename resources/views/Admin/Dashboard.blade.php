@@ -62,5 +62,22 @@
     </div>
     <!-- /.col -->
 </div>
+
+<div class="row">
+    <div class="col-12 col-sm-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-book-open"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Total Buku Yang Didownload</span>
+                <span class="info-box-number">
+                    {{ $downloaded }}
+                </span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+</div>
 <!-- /.row -->
 @endsection

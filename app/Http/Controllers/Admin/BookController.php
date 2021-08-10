@@ -75,7 +75,6 @@ class BookController extends Controller
         return view('admin.book.form', [
             'title'         => 'Tampilkan Detail Buku ID: ' . $query->id,
             'action'        => '#',
-            'downloadLink'  => $query->download_link,
             'isShow'        => $editUrl,
             'query'         => $query,
             'categories'    => $categories

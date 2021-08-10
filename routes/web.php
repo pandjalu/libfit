@@ -59,7 +59,8 @@ Route::prefix('user')->middleware("role:user")->name('user.')->group(function ()
     Route::prefix('book')->name('book.')->group(function () {
         Route::get('/', "BookController@index")->name('index');
         Route::get('/{id}', "BookController@show")->name('show');
-        ROute::get('/borrow/{id}', "BookController@borrow")->name('borrow');
+        Route::get('/borrow/{id}', "BookController@borrow")->name('borrow');
+        Route::get('/download/{id}', "BookController@download")->name('download');
     });
 
     Route::prefix('borrowing')->name('borrowing.')->group(function() {
