@@ -20,7 +20,7 @@ jobs:
       - name: Sync File to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with: 
-          server: ftp.kpmi.or.id
+          server: files.000webhost.com
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
           server-dir: public_html/
