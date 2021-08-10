@@ -8,17 +8,17 @@ jobs:
     name: Deploying
     runs-on: ubuntu-latest
     strategy:
-    matrix:
-      php:
-        - "7.3"
-        - "7.4"
-        - "8.0"
-      dependencies:
-        - "lowest"
-        - "highest"
-      include:
-        - php-version: "8.1"
-          composer-options: "--ignore-platform-reqs"
+      matrix:
+        php:
+          - "7.3"
+          - "7.4"
+          - "8.0"
+        dependencies:
+          - "lowest"
+          - "highest"
+        include:
+          - php-version: "8.1"
+            composer-options: "--ignore-platform-reqs"
     steps:
       - name: Get latest Code
         uses: actions/checkout@v2
