@@ -66,17 +66,18 @@
                                 <div class="col">Pinjam</div>
                             </div>
                         </a>
+                        
+                        @endif
 
-                        {{-- Button For Edit Page --}}
-                        @elseif(isset($isEdit) and !empty($isEdit))
-                            <button type="submit" class="btn btn-success m-auto">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <i class="fas fa-save"></i>
-                                    </div>
-                                    <div class="col">Update</div>
+                        @if(isset($downloadLink))
+                        <a href="{{ $downloadLink }}" class="btn btn-primary">
+                            <div class="row">
+                                <div class="col-2">
+                                    <i class="fas fa-file-download"></i>
                                 </div>
-                            </button>
+                                <div class="col">Download</div>
+                            </div>
+                        </a>
                         @endif
 
 

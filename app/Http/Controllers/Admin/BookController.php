@@ -44,7 +44,7 @@ class BookController extends Controller
     public function store(Request $request) {
         $request->validate([
             'name'         => 'required',
-            'category_id'  => 'required',
+            'category'  => 'required',
             'image'        => 'required',
             'creator'      => 'required',
         ]);
@@ -52,9 +52,10 @@ class BookController extends Controller
         // get form data
         $dataInput = $request->only([
             'name',
-            'category_id',
+            'category',
             'image',
-            'creator'
+            'creator',
+            'download_link'
         ]);
 
         $query = Book::create($dataInput);
@@ -74,6 +75,7 @@ class BookController extends Controller
         return view('admin.book.form', [
             'title'         => 'Tampilkan Detail Buku ID: ' . $query->id,
             'action'        => '#',
+            'downloadLink'  => $query->download_link,
             'isShow'        => $editUrl,
             'query'         => $query,
             'categories'    => $categories
