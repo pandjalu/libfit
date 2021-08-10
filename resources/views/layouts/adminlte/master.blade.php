@@ -33,6 +33,8 @@
     <!-- AdminLTE App -->
     <script src="/js/adminlte.js"></script>
 
+    <script src="/js/demo.js"></script>
+
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/js/pages/dashboard2.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
