@@ -79,24 +79,26 @@
                         
                         @endif
 
-                        @if(isset($downloadLink))
-                        <a href="{{ $downloadLink }}" class="btn btn-primary">
-                            <div class="row">
-                                <div class="col-2">
-                                    <i class="fas fa-file-download"></i>
+                        @if(isset($showDownload))
+                            @if(isset($downloadLink))
+                            <a href="{{ $downloadLink }}" class="btn btn-primary">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <i class="fas fa-file-download"></i>
+                                    </div>
+                                    <div class="col">Download</div>
                                 </div>
-                                <div class="col">Download</div>
-                            </div>
-                        </a>
-                        @else
-                        <button type="submit" class="btn btn-success m-auto" disabled>
-                            <div class="d-flex flex-row">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-file-download mr-2"></i>
+                            </a>
+                            @else
+                            <button type="submit" class="btn btn-success m-auto" disabled>
+                                <div class="d-flex flex-row">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-file-download mr-2"></i>
+                                    </div>
+                                    <div>Download Tidak Tersedia</div>
                                 </div>
-                                <div>Download Tidak Tersedia</div>
-                            </div>
-                        </button>
+                            </button>
+                            @endif
                         @endif
 
 

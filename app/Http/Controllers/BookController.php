@@ -49,7 +49,8 @@ class BookController extends Controller
             'isBorrow'        => $editUrl,
             'downloadLink'  => $downloadUrl,
             'query'         => $query,
-            'categories'    => $categories
+            'categories'    => $categories,
+            "showDownload"  => true
         ]);
     }
 
@@ -64,7 +65,7 @@ class BookController extends Controller
         Borrowing::create($insertData);
         
         return redirect()
-            ->route('user.book.index')
+            ->route('user.borrow.index')
             ->with('success', "Berhasil Meminjam Buku");
     }
 

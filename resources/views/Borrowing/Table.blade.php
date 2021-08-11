@@ -46,7 +46,8 @@
                 "render" : function ( url, type, full) {
                     return `<img height="100" width="75" src="${url}"/>`
                 }
-            }]
+            }],
+            order: [[ 2, "asc" ]]
         });
     } );
 </script>
