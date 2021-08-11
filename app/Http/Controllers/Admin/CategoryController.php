@@ -18,8 +18,10 @@ class CategoryController extends Controller
         $data = Category::all();
 
         return view('Admin.Category.Table', [
-            "title" => "Categories",
-            "data"  => $data
+            "title"  => "Categories",
+            "data"   => $data,
+            "create" => route('admin.category.create'),
+            "name"   => "Kategori"
         ]);
     }
 

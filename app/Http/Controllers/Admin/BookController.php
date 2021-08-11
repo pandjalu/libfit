@@ -27,7 +27,9 @@ class BookController extends Controller
         return view('Admin.Book.Table', [
             "title"      => "Table",
             "data"       => $data,
-            "categories" => $categories
+            "categories" => $categories,
+            "create"     => route('admin.book.create'),
+            "name"       => "Buku"
         ]);
     }
 

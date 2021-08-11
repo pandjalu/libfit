@@ -20,6 +20,8 @@ class MemberController extends Controller
         return view('Admin.Member.Table', [
             "title"      => "Member",
             "data"       => $data,
+            "create"     => route('admin.member.create'),
+            "name"       => "Member"
         ]);
     }
 
