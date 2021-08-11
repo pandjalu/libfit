@@ -106,7 +106,7 @@ class BookController extends Controller
     public function update(Request $request, $id) {
         $request->validate([
             'name'         => 'required',
-            'category_id'  => 'required',
+            'category'  => 'required',
             'image'        => 'required',
             'creator'      => 'required',
         ]);
@@ -114,7 +114,7 @@ class BookController extends Controller
         // get form data
         $dataInput = $request->only([
             'name',
-            'category_id',
+            'category',
             'image',
             'creator'
         ]);

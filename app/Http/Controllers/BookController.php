@@ -9,6 +9,8 @@ use App\Category;
 use App\Borrowing;
 use Illuminate\Support\Facades\Auth;
 
+use function PHPUnit\Framework\isNull;
+
 class BookController extends Controller
 {
      /**
@@ -39,12 +41,13 @@ class BookController extends Controller
         $categories = Category::all();
 
         $editUrl = url('user/book/borrow/' . $id);
+        $downloadUrl = is_null($query->download_link) ? null : url("user/book/download/$query->id");
 
         return view('book.form', [
             'title'         => 'Tampilkan Detail Buku ID: ' . $query->id,
             'action'        => '#',
             'isBorrow'        => $editUrl,
-            'downloadLink'  => url("user/book/download/$query->id"),
+            'downloadLink'  => $downloadUrl,
             'query'         => $query,
             'categories'    => $categories
         ]);
