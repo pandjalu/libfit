@@ -26,7 +26,7 @@ class BorrowingController extends Controller
             "done" => true
         ]);
         return redirect()
-        ->route('user.borrowing')
+        ->route('user.borrowing.index')
         ->with('success', "Berhasil");
     }
 }
