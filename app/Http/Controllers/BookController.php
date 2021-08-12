@@ -65,7 +65,7 @@ class BookController extends Controller
         Borrowing::create($insertData);
         
         return redirect()
-            ->route('user.borrow.index')
+            ->route('user.borrowing.index')
             ->with('success', "Berhasil Meminjam Buku");
     }
 
