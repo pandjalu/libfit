@@ -35,7 +35,7 @@
 <script>
     const kembalikan = id => {
         if(window.confirm('ingin mengembalikan buku?')) {
-            window.location.href = `{{ url('admin/borrowing') . '/' }}${id}`
+            window.location.href = `{{ url('user/borrowing') . '/' }}${id}`
         }
     }
     $(document).ready( function () {
